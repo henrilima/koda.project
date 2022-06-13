@@ -1,0 +1,1 @@
+console.log('[DATABASE]: Conectado a MongoDB!');
