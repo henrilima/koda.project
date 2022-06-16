@@ -1,9 +1,7 @@
 module.exports = {
     name: "ping",
-    aliases: ["status"],
-    category: "utilidade",
-    description: "Veja minha latência, ram, shards e uptime",
-    async execute(message, args) {
+    aliases: ["pong", "status"],
+    execute (message, args) {
         let ramPercent =
             Math.round(
                 (Math.round(
@@ -20,16 +18,16 @@ module.exports = {
         let seconds = Math.floor(global.koda.uptime / 1000) % 60;
 
         let embed = new global.koda.discord.MessageEmbed()
-            .setTitle(`📡 | Infos`)
-            .setColor(global.koda.color).setDescription(`
-  **O ping da API é de:** \`${global.koda.ws.ping}ms\`
-  **Uso de RAM:** \`${ramPercent}%\`
-  **Quantidade de shards:** \`1 shard\`
-  **Uptime:** \`${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos\`.
+            .setTitle(`📡 | Informations`)
+            .setColor(global.koda.color)
+            .setDescription(`
+  **O ping da API é de:** \`${global.koda.ws.ping}ms\`.
+  **Uso de RAM:** \`${ramPercent}%\`.
+  **Uptime:** \`${days !== 0 ? `${days} dias, ` : ''}${hours !== 0 ? `${hours} horas, ` : ''}${minutes !== 0 ? `${minutes} minuto(s) e ` : ''}${seconds} segundos\`.
   `);
 
         message.reply({
             embeds: [embed]
         });
     },
-};
+}

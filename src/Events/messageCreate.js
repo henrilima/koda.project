@@ -8,7 +8,6 @@ module.exports = {
         if (message.channel.type == "dm") return;
 
         const commandFolders = fs.readdirSync("./src/Commands");
-        console.log(commandFolders);
         for (const folder of commandFolders) {
             const commandFiles = fs
                 .readdirSync(`./src/Commands/${folder}`)
@@ -27,18 +26,19 @@ module.exports = {
         ) {
             let embed = {
                 color: global.koda.color,
-                title: "Olá!",
+                title: "Eai",
                 thumbnail: {
                     url: global.koda.user.avatarURL({
                         format: "png",
                     }),
                 },
                 description: `
-**Meu nome é Delta e eu sou um bot Multifuncional para o Discord. Meu prefixo neste servidor é \`${prefix}\`.
-Tente usar \`${prefix}help\` para obter ajuda.**`,
+**Meu nome é Koda e eu sou um bot Multifuncional para o Discord. Meu prefixo neste servidor é \`${prefix}\`.
+
+Tente usar \`${prefix}help\` para obter a lista de comandos (website) ou utilize \`${prefix}ocmd\` para acessar uma curta lista pelo próprio Discord.**`,
             };
-            message.channel.send({
-                embed: embed,
+            message.reply({
+                embeds: [embed],
             });
         };
 
