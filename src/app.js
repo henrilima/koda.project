@@ -16,7 +16,7 @@ global.koda.commands = new Collection();
 global.koda.events = new Collection();
 global.koda.aliases = new Collection();
 
-global.koda.color = "#000000";
+global.koda.color = "#4C5B7B";
 global.koda.manager = KodaBot;
 global.koda.discord = require("discord.js");
 
